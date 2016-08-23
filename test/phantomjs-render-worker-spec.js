@@ -10,7 +10,7 @@ describe('coach', () => {
 
         coach.on(init, () => {
             const files = urls.map((url, index) => {
-                coach.push(url, `pdf/${index}.pdf`);
+                coach.push(url, `/dev/null`);
             });
             coach.on(rendered, (filename) => {
                 console.log(`${rendered}: ${filename}`);
