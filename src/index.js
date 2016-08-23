@@ -67,6 +67,7 @@ export default class WorkerCoach extends EventEmitter {
     getWorkingCount() {
         return Object.keys(this.workState).filter(id => this.workState[id]).length;
     }
+
     emitRendered(file) {
         this.emit(WorkerCoach.event.rendered, file, this.works.length + this.getWorkingCount());
     }
