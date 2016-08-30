@@ -28,7 +28,7 @@
   "author": "deptno@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "phantomjs-render-worker": "^0.1.13"
+    "phantomjs-render-worker": "^0.1.15"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
