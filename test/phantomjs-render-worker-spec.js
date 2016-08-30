@@ -10,10 +10,10 @@ describe('coach', () => {
 
         coach.on(init, () => {
             const files = urls.map((url, index) => {
-                coach.push(url, `pdf/${index}.pdf`);
+                coach.push(url, `/dev/null`);
             });
-            coach.on(rendered, (filename) => {
-                console.log(`${rendered}: ${filename}`);
+            coach.on(rendered, (filename, works) => {
+                console.log(`${rendered}: ${filename}, remain: ${works}`);
                 if (++renderCount === urls.length) done();
             });
             coach.on(error, (filename) => {

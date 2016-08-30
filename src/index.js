@@ -46,13 +46,13 @@ export default class WorkerCoach extends EventEmitter {
     }
     onRendered(workerId, file) {
         this.setWorkState(workerId, false);
-        this.emit(WorkerCoach.event.rendered, file);
+        this.emitRendered(file);
         this.run();
     }
 
     onError(workerId) {
         this.setWorkState(workerId, false);
-        this.emit(WorkerCoach.event.rendered, arguments.slice(1));
+        this.emitRendered(arguments.slice(1));
         this.run();
     }
 
@@ -62,6 +62,14 @@ export default class WorkerCoach extends EventEmitter {
 
     getIdleWorkerId() {
         return Object.keys(this.workState).filter(id => !this.workState[id])[0];
+    }
+
+    getWorkingCount() {
+        return Object.keys(this.workState).filter(id => this.workState[id]).length;
+    }
+
+    emitRendered(file) {
+        this.emit(WorkerCoach.event.rendered, file, this.works.length + this.getWorkingCount());
     }
 
     push(url, file) {
