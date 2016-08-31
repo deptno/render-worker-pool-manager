@@ -1,11 +1,11 @@
-import Coach from '../built';
+import PoolManager from '../built';
 
 describe('coach', () => {
     const urls = [ 'http://google.com', 'http://naver.com' ];
-    const {init, rendered, error} = Coach.event;
+    const {init, rendered, error} = PoolManager.event;
 
     it(`worker ${2}`, done => {
-        const coach = new Coach(2);
+        const coach = new PoolManager(2);
         let renderCount = 0;
 
         coach.on(init, () => {

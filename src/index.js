@@ -3,9 +3,7 @@ import {EventEmitter} from 'events';
 
 export default class WorkerCoach extends EventEmitter {
     static event = {
-        init: 'init',
-        rendered: 'rendered',
-        error: 'error'
+        init: 'init', rendered: 'rendered', error: 'error'
     };
 
     workers   = [];
@@ -41,9 +39,11 @@ export default class WorkerCoach extends EventEmitter {
             this.emit(WorkerCoach.event.init);
         }
     }
+
     onRendering(workerId) {
         this.setWorkState(workerId, true);
     }
+
     onRendered(workerId, file) {
         this.setWorkState(workerId, false);
         this.emitRendered(file);

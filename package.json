@@ -17,7 +17,7 @@
     "build": "./node_modules/.bin/babel src -d built",
     "build:watch": "npm run build -- --watch",
     "prepublish": "npm run build",
-    "test": "mocha --compilers js:babel-core/register -t 10000",
+    "test": "mocha --compilers js:babel-core/register -t 1000000",
     "test:watch": "npm run test -- --watch"
   },
   "keywords": [
@@ -28,7 +28,7 @@
   "author": "deptno@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "phantomjs-render-worker": "^0.1.13"
+    "phantomjs-render-worker": "^0.1.16"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
